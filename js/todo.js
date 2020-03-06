@@ -33,6 +33,7 @@ function newElement() {
     }
   }
 
+  //it will check the clicked item
   let list = document.querySelector('ul');
   list.addEventListener('click', function(ev) {
     if (ev.target.tagName === 'LI') {

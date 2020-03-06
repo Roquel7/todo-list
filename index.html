@@ -2,14 +2,17 @@
 <head>
     <meta charset="UTF-8">
     <title>To Do List</title>
-    <link rel="stylesheet" href="css/style.css" type="text/css">
-   
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <div id="myList">
         <h2>To Do List</h2>
-        <input type="text" id="list" placeholder="Add to Your List">
-        <button class='submitList' onclick="newElement()">Add</button>
+        <span class="search">
+            <input type="text" id="list" placeholder="Add to Your List">
+            <button class="submitList" onclick="newElement()">Add</button>
+        </span>
+
 
     </div>
 
