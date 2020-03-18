@@ -1,5 +1,11 @@
+const inputList = document.getElementById('list');
+const inputBtn = document.getElementById('submitList');
 //Creating a list from the input and adding a closing 'x' symbol next to it.
-function newElement() {
+
+
+submitList.onclick = function() {
+  const key = inputList.value;
+
     let li = document.createElement("li");
     let inputValue = document.getElementById("list").value;
     let listing = document.createTextNode(inputValue);
@@ -23,7 +29,15 @@ function newElement() {
         div.style.display = "none";
       }
     }
+    
+  console.log(key);
+
+  if(key) {
+    localStorage.setItem('listItems', JSON.stringify(key));
   }
+
+
+}
   //making the 'x' to delete the list
   let close = document.getElementsByClassName('close');
   for (i = 0; i < close.length; i++) {
