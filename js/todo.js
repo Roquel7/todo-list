@@ -60,7 +60,7 @@ retrievingList()
 
 
 function storeList(key) {
-    localStorage.setItem('items', JSON.stringify(key));
+    localStorage.setItem('items', key);
   }
     
 function retrievingList() {
