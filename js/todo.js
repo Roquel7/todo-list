@@ -64,6 +64,7 @@ function storeList(key) {
   }
     
 function retrievingList() {
-  saveItems = localStorage.getItem( 'items' );
-  listItems.innerHTML = saveItems;
+  saveItems = localStorage.getItem('items' );
+  listItems.innerHTML = `<li class="close">${saveItems}</li>`;
 }
+
