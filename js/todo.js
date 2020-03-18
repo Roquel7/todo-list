@@ -32,12 +32,13 @@ submitList.onclick = function() {
     
   console.log(key);
 
-  if(key) {
-    localStorage.setItem('listItems', JSON.stringify(key));
-  }
 
+  storeList(key);
 
 }
+
+retrievingList()
+
   //making the 'x' to delete the list
   let close = document.getElementsByClassName('close');
   for (i = 0; i < close.length; i++) {
@@ -54,3 +55,13 @@ submitList.onclick = function() {
       ev.target.classList.toggle('checked');
     }
   }, false);
+
+
+  function storeList(key) {
+    localStorage.setItem('listItem', JSON.stringify(key));
+  }
+    
+function retrievingList() {
+  listItem = localStorage.getItem( 'listItem' );
+  listItems.innerHTML = listItem;
+}
