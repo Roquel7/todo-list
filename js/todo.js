@@ -37,31 +37,33 @@ submitList.onclick = function() {
 
 }
 
+
+//making the 'x' to delete the list
+let close = document.getElementsByClassName('close');
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+      let div = this.parentElement;
+    div.style.display = 'none';
+  }
+}
+
+//it will check the clicked item
+let list = document.querySelector('ul');
+list.addEventListener('click', function(ev) {
+  if (ev.target.tagName === 'LI') {
+    ev.target.classList.toggle('checked');
+  }
+}, false);
+
+
 retrievingList()
 
-  //making the 'x' to delete the list
-  let close = document.getElementsByClassName('close');
-  for (i = 0; i < close.length; i++) {
-    close[i].onclick = function() {
-      let div = this.parentElement;
-      div.style.display = 'none';
-    }
-  }
 
-  //it will check the clicked item
-  let list = document.querySelector('ul');
-  list.addEventListener('click', function(ev) {
-    if (ev.target.tagName === 'LI') {
-      ev.target.classList.toggle('checked');
-    }
-  }, false);
-
-
-  function storeList(key) {
-    localStorage.setItem('listItem', JSON.stringify(key));
+function storeList(key) {
+    localStorage.setItem('items', JSON.stringify(key));
   }
     
 function retrievingList() {
-  listItem = localStorage.getItem( 'listItem' );
-  listItems.innerHTML = listItem;
+  saveItems = localStorage.getItem( 'items' );
+  listItems.innerHTML = saveItems;
 }
