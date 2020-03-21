@@ -3,7 +3,13 @@ const inputBtn = document.getElementById('submitList');
 //Creating a list from the input and adding a closing 'x' symbol next to it.
 
 
+let addingToList = [];
+
+
+
 submitList.onclick = function() {
+
+
   const key = inputList.value;
 
     let li = document.createElement("li");
@@ -14,7 +20,9 @@ submitList.onclick = function() {
       alert("Please add an item.");
     } else {
       document.getElementById("listItems").appendChild(li);
+      addingToList.push(key);
     }
+
     document.getElementById("list").value = "";
     
     let item = document.createElement("SPAN");
@@ -29,13 +37,15 @@ submitList.onclick = function() {
         div.style.display = "none";
       }
     }
-    
-  console.log(key);
 
+    // addingToList.push(key);
+    console.log(addingToList);
 
-  storeList(key);
+    storeList(addingToList);
 
 }
+
+
 
 
 //making the 'x' to delete the list
@@ -60,11 +70,31 @@ retrievingList()
 
 
 function storeList(key) {
-    localStorage.setItem('items', key);
+    localStorage.setItem('items', JSON.stringify(key));
   }
     
 function retrievingList() {
   saveItems = localStorage.getItem('items' );
-  listItems.innerHTML = `<li class="close">${saveItems}</li>`;
+  listItems.innerHTML = `<li>${saveItems}</li>`;
+
+
+  let myNodelist = document.getElementsByTagName("LI");
+let i;
+for (i = 0; i < myNodelist.length; i++) {
+  let span = document.createElement("SPAN");
+  let txt = document.createTextNode("\u00D7");
+  span.className = "close";
+  span.appendChild(txt);
+  myNodelist[i].appendChild(span);
+
+  let close = document.getElementsByClassName('close');
+for (i = 0; i < close.length; i++) {
+  close[i].onclick = function() {
+      let div = this.parentElement;
+    div.style.display = 'none';
+  }
+}
+}
+
 }
 
