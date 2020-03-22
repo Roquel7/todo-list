@@ -1,5 +1,4 @@
 const inputList = document.getElementById('list');
-const inputBtn = document.getElementById('submitList');
 //Creating a list from the input and adding a closing 'x' symbol next to it.
 
 let addingToList = [];
@@ -69,8 +68,6 @@ list.addEventListener('click', function(ev) {
     ev.target.classList.toggle('checked');
   }
 }, false);
-
-
 
 //Storing to local Storage
 function storeList(key) {
