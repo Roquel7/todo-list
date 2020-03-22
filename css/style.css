@@ -46,3 +46,12 @@ ul li.checked {
 .close.checked {
     color: white;
 }
+#edit { 
+    position:relative;
+    top:0;
+    right:0;
+    left: 84%;
+    border: none;
+    background-color: inherit;
+
+}
