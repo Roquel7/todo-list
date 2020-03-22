@@ -40,8 +40,11 @@ submitList.onclick = function() {
       }
     }
 
+    for (i = 0; i < edit.length; i++) {
+      edit[i].onclick = function() {
 
-
+    }
+  }
 
     // addingToList.push(key);
     console.log(addingToList);
